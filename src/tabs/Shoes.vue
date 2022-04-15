@@ -2,49 +2,48 @@
   <div class="fashion">
     <div class="fashion--inner">
       <div class="title--block">
-        <h3><span>men</span> fashion</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis hic
-          perferendis id unde.
-        </p>
-        <button>view more</button>
+        <TextContent
+          v-for="{ type, content } in values[0]"
+          :key="content"
+          :type="type"
+          :content="content"
+        />
       </div>
-      <div class="image--block">
-        <img src="../assets/img/mshoes1.jpg" alt="" />
-      </div>
-      <div class="image--block">
-        <img src="../assets/img/mshoes2.jpg" alt="" />
-      </div>
-      <div class="image--block">
-        <img src="../assets/img/mshoes3.jpg" alt="" />
+      <div class="image--block" v-for="(image, idx) in manShoes" :key="idx">
+        <img :src="require(`../assets/img/shoes/${image}.jpg`)" />
       </div>
     </div>
     <div class="fashion--inner">
       <div class="title--block">
-        <h3><span>women</span> fashion</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis hic
-          perferendis id unde.
-        </p>
-        <button>view more</button>
+        <TextContent
+          v-for="{ type, content } in values[1]"
+          :key="content"
+          :type="type"
+          :content="content"
+        />
       </div>
-      <div class="image--block">
-        <img src="../assets/img/wshoes1.png" alt="" />
-      </div>
-      <div class="image--block">
-        <img src="../assets/img/wshoes2.webp" alt="" />
-      </div>
-      <div class="image--block">
-        <img src="../assets/img/wshoes3.jpg" alt="" />
+      <div class="image--block" v-for="(image, idx) in womanShoes" :key="idx">
+        <img :src="require(`../assets/img/shoes/${image}.jpg`)" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
-export default{
-  name:'ShoesTab'
-}
+import { ref } from 'vue';
+import { useState } from '@/helpers';
+import TextContent from '@/components/textContent';
+export default {
+  name: 'ShoesTab',
+  components: { TextContent },
+
+  setup() {
+    const { values } = useState(['values']);
+    const manShoes = ref(['mshoes1', 'mshoes2', 'mshoes3']);
+    const womanShoes = ref(['wshoes1', 'wshoes2', 'wshoes3']);
+    return { manShoes, womanShoes, values };
+  },
+};
 </script>
 <style scoped lang="scss">
 .fashion--inner {

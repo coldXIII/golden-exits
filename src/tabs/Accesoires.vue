@@ -2,48 +2,58 @@
   <div class="fashion">
     <div class="fashion--inner">
       <div class="title--block">
-        <h3><span>men</span> fashion</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis hic
-          perferendis id unde.
-        </p>
-        <button>view more</button>
+        <TextContent
+          v-for="{ type, content } in values[0]"
+          :key="content"
+          :type="type"
+          :content="content"
+        />
       </div>
-      <div class="image--block">
-        <img src="../assets/img/maccesoires1.jpg" alt="" />
-      </div>
-      <div class="image--block">
-        <img src="../assets/img/maccesoires2.jpg" alt="" />
-      </div>
-      <div class="image--block">
-        <img src="../assets/img/maccesoires3.jpg" alt="" />
+      <div
+        class="image--block"
+        v-for="(image, idx) in manAccesoires"
+        :key="idx"
+      >
+        <img :src="require(`../assets/img/accesoires/${image}.jpg`)" />
       </div>
     </div>
     <div class="fashion--inner">
       <div class="title--block">
-        <h3><span>women</span> fashion</h3>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis hic
-          perferendis id unde.
-        </p>
-        <button>view more</button>
+        <TextContent
+          v-for="{ type, content } in values[1]"
+          :key="content"
+          :type="type"
+          :content="content"
+        />
       </div>
-      <div class="image--block">
-        <img src="../assets/img/waccesoires1.jpg" alt="" />
-      </div>
-      <div class="image--block">
-        <img src="../assets/img/waccesoires2.webp" alt="" />
-      </div>
-      <div class="image--block">
-        <img src="../assets/img/waccesoires3.jpg" alt="" />
+      <div
+        class="image--block"
+        v-for="(image, idx) in womanAccesoires"
+        :key="idx"
+      >
+        <img :src="require(`../assets/img/accesoires/${image}.jpg`)" />
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import { ref } from 'vue';
+import { useState } from '@/helpers';
+import TextContent from '@/components/textContent';
 export default {
   name: 'AccesoiresTab',
+    components:{TextContent},
+  setup() {
+    const { values } = useState(['values']);
+    const manAccesoires = ref(['maccesoires1', 'maccesoires2', 'maccesoires3']);
+    const womanAccesoires = ref([
+      'waccesoires1',
+      'waccesoires2',
+      'waccesoires3',
+    ]);
+    return { manAccesoires, womanAccesoires, values };
+  },
 };
 </script>
 

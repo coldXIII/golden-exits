@@ -1,25 +1,24 @@
 <template>
-  <div>
+  <div class="tabs-box">
     <div class="buttons--block">
       <button
-      v-for="(tab,index) in tabs" :key="index"
+        v-for="(tab, index) in tabs"
+        :key="index"
         @click="selectTab(tab)"
         :class="{ active: currentTab == tab }"
       >
-       {{tab}}
+        {{ tab }}
       </button>
-     </div>
-    <div v-if="currentTab == 'shoes'" class="content">
-      <Shoes />
     </div>
-    <div v-if="currentTab == 'shirts'" class="content">
-      <Shirts />
-    </div>
-    <div v-if="currentTab == 'jeans'" class="content">
-      <Jeans />
-    </div>
-    <div v-if="currentTab == 'accesoires'" class="content">
-      <Accesoires />
+    <div class="tab-content">
+      <transition
+        name="fade"
+        mode="out-in"
+        enter-active-class="animate__animated animate__fadeInLeft"
+        leave-active-class="animate__animated animate__fadeOutRight"
+      >
+        <component :is="currentTab" />
+      </transition>
     </div>
   </div>
 </template>
@@ -29,8 +28,8 @@ import Shoes from '../tabs/Shoes.vue';
 import Accesoires from '../tabs/Accesoires.vue';
 import Jeans from '../tabs/Jeans.vue';
 import Shirts from '../tabs/Shirts.vue';
-import { useState } from '@/helpers';
 import { ref } from 'vue';
+
 export default {
   components: {
     Shoes,
@@ -38,11 +37,12 @@ export default {
     Jeans,
     Shirts,
   },
+
   name: 'TabBox',
-  setup(){
-  const { tabs } = useState(['tabs']);
-  const currentTab = ref('shoes')
-  return{tabs, currentTab}
+  setup() {
+    const tabs = ref(['Shoes', 'Shirts', 'Jeans', 'Accesoires']);
+    const currentTab = ref('Shoes');
+    return { tabs, currentTab };
   },
   methods: {
     selectTab(selectedTab) {
@@ -52,6 +52,15 @@ export default {
 };
 </script>
 <style scoped lang="scss">
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease-out;
+}
+
 button {
   padding: 1rem 2rem;
   background: var(--black);
@@ -61,11 +70,9 @@ button {
   cursor: pointer;
 
   &.active {
-  background: var(--darkgray);
+    background: var(--darkgray);
+  }
 }
-}
-
-
 @media screen and (max-width: 850px) {
   .buttons--block {
     display: flex;

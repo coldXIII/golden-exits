@@ -1,51 +1,49 @@
 <template>
-     <div class="fashion">
-        <div class="fashion--inner">
-          <div class="title--block">
-            <h3><span>men</span> fashion</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-              hic perferendis id unde.
-            </p>
-            <button>view more</button>
-          </div>
-          <div class="image--block">
-            <img src="../assets/img/mjeans1.jpg" alt="" />
-          </div>
-          <div class="image--block">
-            <img src="../assets/img/mjeans2.jpg" alt="" />
-          </div>
-          <div class="image--block">
-            <img src="../assets/img/mjeans3.jpg" alt="" />
-          </div>
-        </div>
-        <div class="fashion--inner">
-          <div class="title--block">
-            <h3><span>women</span> fashion</h3>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis
-              hic perferendis id unde.
-            </p>
-            <button>view more</button>
-          </div>
-          <div class="image--block">
-            <img src="../assets/img/wjeans1.jpg" alt="" />
-          </div>
-          <div class="image--block">
-            <img src="../assets/img/wjeans2.jpg" alt="" />
-          </div>
-          <div class="image--block">
-            <img src="../assets/img/wjeans3.png" alt="" />
-          </div>
-        </div>
-        <div class="women-fashion"></div>
+  <div class="fashion">
+    <div class="fashion--inner">
+      <div class="title--block">
+        <TextContent
+          v-for="{ type, content } in values[0]"
+          :key="content"
+          :type="type"
+          :content="content"
+        />
       </div>
+      <div class="image--block" v-for="(image, idx) in manJeans" :key="idx">
+        <img :src="require(`../assets/img/jeans/${image}.jpg`)" />
+      </div>
+    </div>
+    <div class="fashion--inner">
+      <div class="title--block">
+        <TextContent
+          v-for="{ type, content } in values[1]"
+          :key="content"
+          :type="type"
+          :content="content"
+        />
+      </div>
+      <div class="image--block" v-for="(image, idx) in womanJeans" :key="idx">
+        <img :src="require(`../assets/img/jeans/${image}.jpg`)" />
+      </div>
+    </div>
+    <div class="women-fashion"></div>
+  </div>
 </template>
 
 <script>
-export default{
-  name:'JeansTab'
-}
+import { ref } from 'vue';
+import { useState } from '@/helpers';
+import TextContent from '@/components/textContent';
+export default {
+  name: 'JeansTab',
+    components:{TextContent},
+  setup() {
+    const { values } = useState(['values']);
+    const manJeans = ref(['mjeans1', 'mjeans2', 'mjeans3']);
+    const womanJeans = ref(['wjeans1', 'wjeans2', 'wjeans3']);
+    return { manJeans, womanJeans, values };
+  },
+};
 </script>
 
 <style scoped lang="scss">

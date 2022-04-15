@@ -2,20 +2,33 @@ import { createStore } from 'vuex';
 
 export default createStore({
   state: {
-    menImages: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'],
+    menImages: [
+      'man1',
+      'man2',
+      'man3',
+      'man4',
+      'man5',
+      'man6',
+      'man7',
+      'man8',
+      'man9',
+      'man10',
+      'man11',
+      'man12',
+    ],
     womenImages: [
-      '1',
-      '2',
-      '3',
-      '4',
-      '5',
-      '6',
-      '7',
-      '8',
-      '9',
-      '10',
-      '11',
-      '12',
+      'woman1',
+      'woman2',
+      'woman3',
+      'woman4',
+      'woman5',
+      'woman6',
+      'woman7',
+      'woman8',
+      'woman9',
+      'woman10',
+      'woman11',
+      'woman12',
     ],
     links: [
       {
@@ -70,7 +83,6 @@ export default createStore({
         month: 'January',
       },
     ],
-    tabs: ['shoes', 'shirts', 'jeans', 'accesoires'],
     tags: [
       'Fashion',
       'Man',
@@ -80,6 +92,26 @@ export default createStore({
       'Accesoires',
       'Jeans',
       'Clothes',
+    ],
+    values: [
+      [
+        { type: 'h3', content: 'man fashion' },
+        {
+          type: 'p',
+          content:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis hicperferendis id unde.',
+        },
+        { type: 'button', content: 'view more' },
+      ],
+      [
+        { type: 'h3', content: 'woman fashion' },
+        {
+          type: 'p',
+          content:
+            'Lorem ipsum dolor sit amet consectetur adipisicing elit. Veritatis hicperferendis id unde.',
+        },
+        { type: 'button', content: 'view more' },
+      ],
     ],
   },
   getters: {},

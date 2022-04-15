@@ -4,17 +4,21 @@
     <div class="main">
       <router-view />
     </div>
-    <div class="footer"></div>
+    <div class="footer">
+      <Footer/>
+    </div>
   </div>
 </template>
 
 <script>
 import Header from './components/Header.vue';
+import Footer from './components/Footer.vue';
 export default {
   name: 'App',
   components: {
     Header,
-  },
+    Footer
+},
 };
 </script>
 
@@ -27,6 +31,10 @@ export default {
   --darkgray: #505050;
   --dark: #181818;
   --black: #000000;
+}
+
+body{
+  overflow-x: hidden;
 }
 li {
   list-style: none;

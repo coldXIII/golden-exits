@@ -12,12 +12,13 @@
       </div>
     </div>
   </div>
-  <Footer />
+  <Footer/>
 </template>
 
 <script>
-import Footer from '../components/Footer.vue';
+
 import { useState } from '@/helpers';
+import Footer from '@/components/Footer.vue';
 export default {
   name: 'WomanView',
   setup() {
