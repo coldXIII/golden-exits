@@ -12,12 +12,10 @@
       </div>
     </div>
   </div>
-  <Footer />
 </template>
 
 <script>
-import Footer from '../components/Footer.vue';
-import { useState } from '@/helpers';
+import { useState } from '@/utils/helpers';
 
 export default {
   name: 'ManView',
@@ -26,7 +24,6 @@ export default {
 
     return { menImages };
   },
-  components: { Footer },
 };
 </script>
 
@@ -61,49 +58,33 @@ export default {
         text-align: center;
         margin-left: 0;
       }
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 40%;
-        left: 15%;
-        width: 8rem;
-        height: 0.1rem;
-        background: var(--golden);
-
-        @media screen and (max-width: 1150px) {
-          display: none;
-        }
-      }
     }
   }
 
   .images {
     max-width: 70rem;
     margin: 2rem auto;
-    columns: 4;
-    column-gap: 1rem;
     padding: 2rem;
-    background: #fff;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(100px, 1fr));
+    grid-auto-rows: max-content;
+    grid-auto-flow: dense;
+    gap: 1rem;
 
     @media (max-width: 850px) {
-      max-width: 80rem;
       margin: 2rem auto;
-      columns: 2;
-      column-gap: 1rem;
+      grid-template-columns: repeat(2, minmax(100px, 1fr));
       padding: 1rem;
     }
 
-    @media (max-width: 570px) {
-      max-width: 80rem;
+    @media (max-width: 450px) {
       margin: 2rem auto;
-      columns: 1;
-      column-gap: 1rem;
+      grid-template-columns: repeat(1, minmax(100px, 1fr));
       padding: 1rem;
     }
 
     .image {
-      width: 80%;
+      width: auto;
       margin: 0 0 1rem;
       overflow: hidden;
       padding: 1rem;

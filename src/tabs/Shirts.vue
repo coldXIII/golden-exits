@@ -31,11 +31,11 @@
 
 <script>
 import { ref } from 'vue';
-import { useState } from '@/helpers';
-import TextContent from '@/components/textContent';
+import { useState } from '@/utils/helpers';
+import TextContent from '@/utils/textContent';
 export default {
   name: 'ShirtsTab',
-  components:{TextContent},
+  components: { TextContent },
   setup() {
     const { values } = useState(['values']);
     const manShirts = ref(['mshirt1', 'mshirt2', 'mshirt3']);
@@ -71,18 +71,16 @@ export default {
       text-transform: uppercase;
       font-size: 1.7rem;
       font-weight: 300;
+      margin-bottom: 0.5rem;
 
       @media screen and (max-width: 500px) {
         font-size: 1rem;
-      }
-
-      span {
-        color: var(--golden);
       }
     }
     p {
       font-size: 0.9rem;
       color: var(--darkgray);
+      margin-bottom: 1rem;
 
       @media screen and (max-width: 500px) {
         font-size: 0.7rem;
@@ -94,6 +92,13 @@ export default {
       color: var(--lightgray);
       border: 1px solid var(--lightgray);
       text-transform: uppercase;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        border: 1px solid var(--golden);
+        background-color: var(--golden);
+        color: #fff;
+      }
 
       @media screen and (max-width: 500px) {
         padding: 0.5rem 1rem;

@@ -47,16 +47,15 @@
       </aside>
     </div>
   </div>
-  <Footer />
 </template>
 
 <script>
 import News from '../components/News.vue';
-import Footer from '../components/Footer.vue';
-import { useState } from '@/helpers';
+
+import { useState } from '@/utils/helpers';
 export default {
   name: 'BlogView',
-  components: { News, Footer },
+  components: { News },
   setup() {
     const { tags } = useState(['tags']);
     return { tags };
@@ -66,64 +65,59 @@ export default {
 
 <style scoped lang="scss">
 .blog-container {
-  padding: 2rem 4rem;
+  padding: 2rem;
   display: grid;
-  grid-template-columns: 8fr 4fr;
+  grid-template-columns: 7fr 5fr;
 
-  @media screen and (max-width: 1150px) {
+  @media screen and (max-width: 980px) {
     padding: 2rem;
     grid-template-columns: 1fr;
     text-align: center;
   }
-}
-.title {
-  margin-bottom: 3rem;
 
-  h1 {
-    font-size: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    font-weight: 300;
-    color: var(--black);
+  .blog-container__left {
+    margin: auto;
 
-    @media screen and (max-width: 750px) {
-      font-size: 2.5rem;
-      text-align: center;
-    }
-  }
-  p {
-    position: relative;
-    font-size: 0.8rem;
-    color: var(--golden);
-    text-transform: uppercase;
-    letter-spacing: 0.1rem;
-    margin-left: 4rem;
+    .title {
+      margin-bottom: 3rem;
 
-    @media screen and (max-width: 750px) {
-      text-align: center;
-      margin-left: 0;
-    }
-    &::before {
-      content: '';
-      position: absolute;
-      top: 40%;
-      left: 17%;
-      width: 8rem;
-      height: 0.1rem;
-      background: var(--golden);
+      h1 {
+        font-size: 3rem;
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        font-weight: 300;
+        color: var(--black);
 
-      @media screen and (max-width: 1150px) {
-        display: none;
+        @media screen and (max-width: 750px) {
+          font-size: 2.5rem;
+          text-align: center;
+        }
+      }
+      p {
+        position: relative;
+        font-size: 0.8rem;
+        color: var(--golden);
+        text-transform: uppercase;
+        letter-spacing: 0.1rem;
+        margin-left: 4rem;
+
+        @media screen and (max-width: 750px) {
+          text-align: center;
+          margin-left: 0;
+        }
       }
     }
   }
 }
 
 .blog-container__right {
+  margin: auto;
   @media screen and (max-width: 750px) {
     text-align: center;
     width: 100%;
-    margin-left: -2rem;
+  }
+  .categories {
+    margin-bottom: 2rem;
   }
 
   .categories h4,
@@ -141,21 +135,25 @@ export default {
     border-bottom: 1px dotted var(--lightgray);
   }
   .recent-posts {
-    .post-date {
-      color: var(--golden);
-      font-style: italic;
-    }
-    .post-article {
-      font-size: 0.9rem;
-    }
-    cite {
-      font-weight: 700;
-      font-size: 0.9rem;
-    }
-
     li {
       border-bottom: 1px solid var(--golden);
-      padding: 0.5rem 0;
+      padding: 1rem 0;
+      margin: 1rem auto;
+
+      .post-date {
+        color: var(--golden);
+        font-style: italic;
+        margin-bottom: 0.5rem;
+      }
+      .post-article {
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
+      cite {
+        font-weight: 700;
+        font-size: 0.9rem;
+        margin-bottom: 0.5rem;
+      }
     }
   }
 
@@ -163,6 +161,9 @@ export default {
     width: 100%;
     padding: 3rem;
     text-align: center;
+    h2 {
+      margin-bottom: 2rem;
+    }
 
     .tags {
       display: flex;

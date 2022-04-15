@@ -63,7 +63,6 @@
       <div class="tabs">
         <Tabs />
       </div>
-  
     </section>
   </div>
 </template>
@@ -72,12 +71,10 @@
 import { ref } from 'vue';
 import Tabs from '../components/Tabs.vue';
 
-
 export default {
   name: 'HomeView',
   components: {
     Tabs,
-   
   },
   setup() {
     const images = ref([
@@ -94,6 +91,9 @@ export default {
 <style scoped lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
 
+section{
+  margin: 2rem 0;
+}
 .arrivals--title {
   margin-bottom: 3rem;
 }
@@ -133,21 +133,7 @@ export default {
     text-align: center;
   }
 }
-.arrivals--title p::before,
-.product--title p::before,
-.store--title p::before {
-  content: '';
-  position: absolute;
-  top: 40%;
-  left: 15%;
-  width: 8rem;
-  height: 0.1rem;
-  background: var(--golden);
 
-  @media screen and (max-width: 1150px) {
-    display: none;
-  }
-}
 .arrivals--images {
   display: flex;
   justify-content: center;
@@ -207,6 +193,7 @@ export default {
 
 .product {
   background: #eee;
+  
 }
 .product--main {
   display: flex;
@@ -258,29 +245,44 @@ export default {
   padding: 2rem;
   border: 1px solid var(--golden);
   background: #fff;
+    overflow: hidden;
+
+  @media screen and (max-width: 550px) {
+    padding: 0.5rem;
+    text-align: center;
+
+    height: 40vh;
+    overflow: scroll;
+  }
 
   h2 {
     padding: 2rem;
     color: var(--darkgray);
+    @media screen and (max-width: 550px) {
+      padding: 0.5rem;
+      text-align: center;
+      font-size: 1rem;
+    }
   }
   p {
     padding: 2rem;
     font-size: 0.9rem;
     color: var(--lightgray);
+
+    @media screen and (max-width: 550px) {
+      padding: 0.5rem;
+      text-align: center;
+      font-size: 0.8rem;
+    }
   }
   cite {
     color: var(--golden);
     padding: 2rem;
-  }
-}
 
-@media screen and (max-width: 550px) {
-  .product--main-article-content,
-  .product--main-article-content h2,
-  .product--main-article-content p,
-  .product--main-article-content cite {
-    padding: 1rem;
-    text-align: center;
+    @media screen and (max-width: 550px) {
+      padding: 0.5rem;
+      text-align: center;
+    }
   }
 }
 </style>

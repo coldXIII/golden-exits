@@ -35,18 +35,29 @@ footer {
   text-align: center;
   background: var(--dark);
   color: var(--golden);
+
   h1 {
     font-size: 3rem;
     text-transform: uppercase;
     font-weight: 300;
+    margin-bottom: 1rem;
+      @media(max-width: 990px){
+    font-size: 2.5rem;
+  }
   }
   h2 {
     font-size: 2rem;
     text-transform: uppercase;
     font-weight: 300;
+        margin-bottom: 1rem;
+
+      @media(max-width: 990px){
+    font-size: 1.5rem;
+  }
   }
   p {
     color: rgba(255, 255, 255, 0.6);
+        margin-bottom: 1rem;
   }
   a {
     margin: 1rem;

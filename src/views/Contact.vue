@@ -25,15 +25,13 @@
       <div id="map"></div>
     </div>
   </div>
-  <Footer />
 </template>
 
 <script>
 import leaflet from 'leaflet';
 import { onMounted } from '@vue/runtime-core';
-import Footer from '../components/Footer.vue';
 export default {
-  name:'ContactView',
+  name: 'ContactView',
   setup() {
     let mymap;
     onMounted(() => {
@@ -52,18 +50,21 @@ export default {
         .addTo(mymap);
     });
   },
-  components: { Footer },
 };
 </script>
 
 <style scoped lang="scss">
 #map {
-  height: 80vh;
+  height: 70vh;
   width: 90%;
   border: 2px solid var(--golden);
   overflow: hidden;
-  margin: 1rem;
+  margin: 1rem auto;
 
+  @media screen and (max-width: 1050px) {
+    height: 50vh;
+    width: 90vw;
+  }
   @media screen and (max-width: 550px) {
     height: 30vh;
     width: 90vw;
@@ -114,8 +115,7 @@ export default {
           font-size: 1.2rem;
           text-align: center;
         }
-
-        }
+      }
     }
     form {
       display: flex;
@@ -134,7 +134,7 @@ export default {
         border: none;
         outline: none;
         @media screen and (max-width: 550px) {
-          width: 80vw;
+          width: 70vw;
         }
       }
       input::placeholder,
@@ -147,7 +147,7 @@ export default {
         color: var(--black);
       }
       button {
-        width: 73.5%;
+        width: 70%;
         background: var(--golden);
         padding: 0.5rem;
         cursor: pointer;

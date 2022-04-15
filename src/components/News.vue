@@ -1,5 +1,5 @@
 <template>
-  <article class="news__item" v-for="(post, index) in posts" :key="index">
+  <article class="news-item" v-for="(post, index) in posts" :key="index">
     <div class="image-box">
       <img :src="require(`../assets/img/posts/${post.image}.jpg`)" alt="" />
       <div class="info-box">
@@ -45,7 +45,7 @@
 
 <script>
 import Modal from './Modal.vue';
-import { useState } from '@/helpers';
+import { useState } from '@/utils/helpers';
 import { ref } from 'vue';
 export default {
   name: 'AppNews',
@@ -80,6 +80,9 @@ export default {
 .liked {
   background: var(--golden);
 }
+.news-item{
+  margin: 0 auto;
+}
 .image-box {
   position: relative;
   min-width: 20rem;
@@ -102,7 +105,7 @@ export default {
     flex-direction: column;
     background: rgba(0, 0, 0, 0.5);
 
-    @media screen and (max-width: 980px) {
+    @media screen and (max-width: 850px) {
       position: absolute;
       top: 0;
       left: 0;
@@ -122,7 +125,7 @@ export default {
       color: var(--golden);
       text-align: center;
 
-      @media screen and (max-width: 980px) {
+      @media screen and (max-width: 850px) {
         padding: 0.6rem;
         border-radius: 0.5rem;
       }
@@ -150,19 +153,19 @@ export default {
       justify-content: start;
       align-items: flex-start;
       flex-direction: column;
-      @media screen and (max-width: 980px) {
+      @media screen and (max-width: 850px) {
         display: flex;
         justify-content: start;
         align-items: center;
         flex-direction: row;
       }
       button {
-        margin: 1rem auto;
+        margin: 0.5rem auto;
         padding: 1rem;
         border-radius: 0.5rem;
         cursor: pointer;
 
-        @media screen and (max-width: 980px) {
+        @media screen and (max-width: 850px) {
           margin: 0.5rem;
         }
         @media screen and (max-width: 620px) {
@@ -200,6 +203,7 @@ export default {
     font-weight: 300;
     font-size: 2rem;
     text-transform: uppercase;
+    margin-bottom: 1rem;
 
     @media screen and (max-width: 450px) {
       font-size: 1.5rem;
@@ -211,6 +215,7 @@ export default {
   }
   p {
     color: var(--lightgray);
+    margin-bottom: 1rem;
   }
   a {
     color: var(--lightgray);

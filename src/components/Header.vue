@@ -143,7 +143,6 @@ export default {
 @media screen and (max-width: 450px) {
   .header__nav {
     margin-bottom: 0;
-    margin-left: -1rem;
     width: 100%;
   }
 }

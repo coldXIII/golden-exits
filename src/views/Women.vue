@@ -12,21 +12,17 @@
       </div>
     </div>
   </div>
-  <Footer/>
 </template>
 
 <script>
-
-import { useState } from '@/helpers';
-import Footer from '@/components/Footer.vue';
+import { useState } from '@/utils/helpers';
 export default {
   name: 'WomanView',
   setup() {
-     const { womenImages } = useState(['womenImages']);
- 
+    const { womenImages } = useState(['womenImages']);
+
     return { womenImages };
   },
-  components: { Footer },
 };
 </script>
 
@@ -62,63 +58,46 @@ export default {
         text-align: center;
         margin-left: 0;
       }
-
-      &::before {
-        content: '';
-        position: absolute;
-        top: 40%;
-        left: 15%;
-        width: 8rem;
-        height: 0.1rem;
-        background: var(--golden);
-
-        @media screen and (max-width: 1150px) {
-          display: none;
-        }
-      }
     }
-    }
-    .images {
-      max-width: 70rem;
-      margin: 1rem auto;
-      columns: 4;
+  }
+  .images {
+    max-width: 70rem;
+    margin: 1rem auto;
+    columns: 4;
+    column-gap: 1rem;
+    padding: 2rem;
+    background: #fff;
+
+    @media (max-width: 850px) {
+      margin: 2rem auto;
+      columns: 2;
       column-gap: 1rem;
-      padding: 2rem;
-      background: #fff;
+      padding: 1rem;
+    }
 
-      @media (max-width: 850px) {
-        max-width: 80rem;
-        margin: 2rem auto;
-        columns: 2;
-        column-gap: 1rem;
-        padding: 1rem;
+    @media (max-width: 450px) {
+      width: 100%;
+      margin: 2rem auto;
+      columns: 1;
+      column-gap: 1rem;
+      padding: 1rem;
+    }
+
+    .image {
+      width: auto;
+      margin: 0 0 1rem;
+      overflow: hidden;
+      padding: 1rem;
+      border: 1px solid var(--golden);
+      transition: all 0.5s ease-in-out;
+
+      &:hover {
+        background: var(--golden);
       }
-
-      @media (max-width: 570px) {
+      img {
         width: 100%;
-        margin: 2rem auto;
-        columns: 1;
-        column-gap: 1rem;
-        padding: 1rem;
       }
-
-      .image {
-        max-width: 80%;
-        margin: 0 0 1rem;
-        overflow: hidden;
-        padding: 1rem;
-        border: 1px solid var(--golden);
-        transition: all 0.5s ease-in-out;
-      
-
-        &:hover {
-          background: var(--golden);
-        }
-        img {
-          width: 100%;
-        }
-      }
-    
+    }
   }
 }
 </style>

@@ -61,39 +61,40 @@ export default {
   transition: opacity 0.3s ease-out;
 }
 
-button {
-  padding: 1rem 2rem;
-  background: var(--black);
-  color: var(--golden);
-  margin: 2rem 0.1rem;
-  text-transform: uppercase;
-  cursor: pointer;
+.buttons--block {
+  padding: 0 1rem;
 
-  &.active {
-    background: var(--darkgray);
-  }
-}
-@media screen and (max-width: 850px) {
-  .buttons--block {
+  @media screen and (max-width: 850px) {
     display: flex;
     justify-content: center;
     align-items: center;
   }
-}
-@media screen and (max-width: 500px) {
-  .buttons--block button {
-    padding: 0.5rem 1rem;
-    margin: 1rem 0.1rem;
-  }
-}
-@media screen and (max-width: 400px) {
-  .buttons--block {
+
+  @media screen and (max-width: 400px) {
     flex-direction: column;
   }
-  .buttons--block button {
-    padding: 0.7rem 1rem;
-    width: 100%;
-    margin: 0.2rem;
+
+  button {
+    padding: 1rem 2rem;
+    background: var(--black);
+    color: var(--golden);
+    margin: 2rem 0.1rem;
+    text-transform: uppercase;
+    cursor: pointer;
+
+    @media screen and (max-width: 500px) {
+      padding: 0.5rem 1rem;
+      margin: 1rem 0.1rem;
+    }
+    @media screen and (max-width: 400px) {
+      padding: 0.7rem 1rem;
+      width: 100%;
+      margin: 0.2rem;
+    }
+
+    &.active {
+      background: var(--darkgray);
+    }
   }
 }
 </style>

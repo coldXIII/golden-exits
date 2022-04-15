@@ -32,6 +32,11 @@ export default {
   --dark: #181818;
   --black: #000000;
 }
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
 
 body{
   overflow-x: hidden;

@@ -19,7 +19,7 @@
 </template>
 
 <script>
-import { useState } from '@/helpers';
+import { useState } from '@/utils/helpers';
 import { ref } from 'vue';
 export default {
   name: 'NavMenu',
@@ -39,22 +39,24 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
-  .active {
+.active {
   background: var(--darkgray);
 }
-
 
 .nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   height: 10vh;
+  margin-bottom: 2rem;
 
-
+  @media screen and (max-width: 1100px) {
+    height: 7vh;
+  }
   @media screen and (max-width: 750px) {
     flex-wrap: wrap;
     padding: 1rem;
+    height: 10vh;
   }
 
   @media screen and (max-width: 450px) {
@@ -63,18 +65,18 @@ export default {
   }
 
   .nav__social {
-    width: 39%;
+    width: 40%;
     height: 100%;
     display: flex;
     justify-content: flex-end;
     align-items: center;
     background: #eee;
-   
 
     @media screen and (max-width: 750px) {
       width: 100%;
       justify-content: space-around;
       padding: 1rem;
+      margin-bottom: 0.5rem;
     }
     @media screen and (max-width: 450px) {
       display: none;
@@ -96,27 +98,24 @@ export default {
   .nav__menu {
     width: 60%;
     height: 100%;
+    padding: 0 1rem;
     display: flex;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
     background: var(--black);
 
     @media screen and (max-width: 750px) {
       width: 100%;
-      justify-content: space-around;
-      padding: 1rem;
     }
     @media screen and (max-width: 450px) {
       flex-direction: column;
       width: 100%;
+      margin: 0 auto;
     }
 
     li {
       height: 100%;
-      width: 5vw;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+      width: 100%;
       padding: 0 1rem;
       transition: all 0.3s ease;
 
@@ -131,6 +130,11 @@ export default {
       }
 
       a {
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         color: var(--golden);
         text-transform: uppercase;
       }
