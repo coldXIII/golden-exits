@@ -4,13 +4,13 @@
       <h1>Women collections</h1>
       <p>View all products</p>
     </div>
-    <div class="images">
+    <section class="images">
       <div class="image-box" v-for="(image, index) in womenImages" :key="index">
         <div class="image">
           <img :src="require(`../assets/img/women-page/${image}.jpg`)" />
         </div>
       </div>
-    </div>
+    </section>
   </div>
 </template>
 

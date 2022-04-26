@@ -34,7 +34,7 @@
         </div>
         <div class="product--main-article">
           <div class="product--main-article-inner">
-            <div class="product--main-article-content">
+            <article class="product--main-article-content">
               <h2>MAURIS VITAE ERAT CONSEQUAT AUCTOR EU IN ELIT.</h2>
               <p>
                 Luxury Gold is free responsive template from templatemo.com
@@ -50,7 +50,7 @@
                 Duis non sapien egestas, eleifend felis vel, consequat quam.
               </p>
               <cite>MAURIS IN ERAT JUSTO</cite>
-            </div>
+            </article>
           </div>
         </div>
       </div>

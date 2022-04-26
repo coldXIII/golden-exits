@@ -9,8 +9,8 @@
         <News />
       </div>
     </div>
-    <div class="blog-container__right">
-      <aside>
+    <aside class="blog-container__right">
+      <article>
         <ul class="categories">
           <h4>Categories</h4>
           <li>Aenean Sollicitudin</li>
@@ -19,7 +19,7 @@
           <li>Nec SagittisSem Nibh ld elit</li>
           <li>Duis Sed Bdio Ritmet Consequat</li>
         </ul>
-      </aside>
+      </article>
       <article class="recent-posts">
         <ul>
           <h4>RECENT POSTS</h4>
@@ -35,7 +35,7 @@
           </li>
         </ul>
       </article>
-      <aside class="tags-box">
+      <article class="tags-box">
         <div class="tags-box--inner">
           <h2>Popular Tags</h2>
           <div class="tags">
@@ -44,8 +44,8 @@
             }}</span>
           </div>
         </div>
-      </aside>
-    </div>
+      </article>
+    </aside>
   </div>
 </template>
 
@@ -68,6 +68,7 @@ export default {
   padding: 2rem;
   display: grid;
   grid-template-columns: 7fr 5fr;
+  gap:1rem;
 
   @media screen and (max-width: 980px) {
     padding: 2rem;
@@ -143,7 +144,7 @@ export default {
       .post-date {
         color: var(--golden);
         font-style: italic;
-        margin-bottom: 0.5rem;
+        margin-bottom: 1rem;
       }
       .post-article {
         font-size: 0.9rem;
