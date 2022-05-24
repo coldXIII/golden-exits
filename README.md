@@ -1,4 +1,4 @@
-# g-exits
+# golden-exits
 
 ## Project setup
 ```
