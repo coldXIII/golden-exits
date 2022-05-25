@@ -1,11 +1,13 @@
 <template>
   <div id="app">
-    <Header />
+    <div class="header">
+      <Header />
+    </div>
     <div class="main">
       <router-view />
     </div>
     <div class="footer">
-      <Footer/>
+      <Footer />
     </div>
   </div>
 </template>
@@ -17,8 +19,8 @@ export default {
   name: 'App',
   components: {
     Header,
-    Footer
-},
+    Footer,
+  },
 };
 </script>
 
@@ -32,13 +34,13 @@ export default {
   --dark: #181818;
   --black: #000000;
 }
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-body{
+body {
   overflow-x: hidden;
 }
 li {
@@ -57,6 +59,5 @@ button {
   font-family: 'Open Sans', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-
 }
 </style>

@@ -51,8 +51,8 @@
 
 <script>
 import News from '../components/News.vue';
-
 import { useState } from '@/utils/helpers';
+
 export default {
   name: 'BlogView',
   components: { News },
@@ -67,7 +67,7 @@ export default {
 .blog-container {
   padding: 2rem;
   display: grid;
-  grid-template-columns: 7fr 5fr;
+  grid-template-columns: repeat(12,1fr);
   gap:1rem;
 
   @media screen and (max-width: 980px) {
@@ -77,6 +77,7 @@ export default {
   }
 
   .blog-container__left {
+    grid-column: 7 span;
     margin: auto;
 
     .title {
@@ -112,6 +113,7 @@ export default {
 }
 
 .blog-container__right {
+  grid-column: 5 span;
   margin: auto;
   @media screen and (max-width: 750px) {
     text-align: center;

@@ -17,7 +17,7 @@
             rows="7"
             placeholder="Message..."
           ></textarea>
-          <button type="submit">Submit</button>
+          <button>Submit</button>
         </form>
       </div>
     </div>
@@ -27,30 +27,26 @@
   </div>
 </template>
 
-<script>
+<script setup>
 import leaflet from 'leaflet';
 import { onMounted } from '@vue/runtime-core';
-export default {
-  name: 'ContactView',
-  setup() {
-    let mymap;
-    onMounted(() => {
-      mymap = leaflet.map('map').setView([40.712, -74.0], 13);
-      leaflet
-        .tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution:
-            '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-          maxZoom: 10,
-          id: 'mapbox/streets-v11',
-          zoomOffset: -1,
-          tileSize: 512,
-          accessToken:
-            'pk.eyJ1IjoiaWhvcmNvbGQiLCJhIjoiY2t4YnNpdjZsMmVkbjJybzV5dXVtaTVveCJ9.IJ3r2R1CvVLxvDqWU21mpA',
-        })
-        .addTo(mymap);
-    });
-  },
-};
+
+let mymap;
+onMounted(() => {
+  mymap = leaflet.map('map').setView([40.712, -74.0], 13);
+  leaflet
+    .tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution:
+        '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 10,
+      id: 'mapbox/streets-v11',
+      zoomOffset: -1,
+      tileSize: 512,
+      accessToken:
+        'pk.eyJ1IjoiaWhvcmNvbGQiLCJhIjoiY2t4YnNpdjZsMmVkbjJybzV5dXVtaTVveCJ9.IJ3r2R1CvVLxvDqWU21mpA',
+    })
+    .addTo(mymap);
+});
 </script>
 
 <style scoped lang="scss">

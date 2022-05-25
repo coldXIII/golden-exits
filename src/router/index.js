@@ -1,31 +1,31 @@
 import { createRouter, createWebHashHistory } from 'vue-router';
-import Home from '../views/Home.vue';
+import HomeView from '../views/HomeView.vue';
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home,
+    name: 'HomeView',
+    component: HomeView,
   },
   {
     path: '/blog',
-    name: 'Blog',
-    component: () => import('../views/Blog.vue'),
+    name: 'BlogView',
+    component: () => import('../views/BlogView.vue'),
   },
   {
     path: '/contact',
-    name: 'Contact',
-    component: () => import('../views/Contact.vue'),
+    name: 'ContactView',
+    component: () => import('../views/ContactView.vue'),
   },
   {
     path: '/women',
-    name: 'Women',
-    component: () => import('../views/Women.vue'),
+    name: 'WomenView',
+    component: () => import('../views/WomenView.vue'),
   },
   {
     path: '/men',
-    name: 'Men',
-    component: () => import('../views/Men.vue'),
+    name: 'MenView',
+    component: () => import('../views/MenView.vue'),
   },
 ];
 

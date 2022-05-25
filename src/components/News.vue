@@ -21,9 +21,11 @@
         </div>
       </div>
     </div>
+
     <Modal @close="toggleModal" :modalActive="modalActive">
       <div class="modal-content">
         <h2><em>Place for your comment...</em></h2>
+        <input type="text" placeholder="Your Name" />
         <textarea placeholder="Enter your message" />
       </div>
     </Modal>
@@ -72,15 +74,26 @@ export default {
   padding: 1rem;
   text-align: center;
 }
+.modal-content input {
+  width: 100%;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  border:1px solid var(--golden);
+  outline:none;
+}
 .modal-content textarea {
-  width: 80%;
-  margin-top: 3rem;
+  width: 100%;
+  margin-top: 1rem;
   padding: 2rem;
+  border-radius: 0.5rem;
+  border:1px solid var(--golden);
+  outline:none;
 }
 .liked {
   background: var(--golden);
 }
-.news-item{
+.news-item {
   margin: 0 auto;
 }
 .image-box {
@@ -184,7 +197,7 @@ export default {
         }
         &.like.liked {
           background: #fff;
-          color: var(--golden);
+          color: #ab0008;
         }
         &.message {
           font-size: 1.5rem;

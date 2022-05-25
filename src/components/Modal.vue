@@ -42,9 +42,11 @@ export default {
   position: fixed;
   top: 50%;
   left: 50%;
+  z-index: 99999;
   transform: translate(-50%, -50%);
   background: #fff;
   border-radius: 1rem;
+  box-shadow:0 0 5px var(--golden);
 
   @media (max-width: 750px) {
     width: 80vw;
@@ -62,6 +64,7 @@ export default {
     flex-direction: column;
     color: var(--text-color);
     border-radius: 1rem;
+
 
     i {
       color: var(--golden);
